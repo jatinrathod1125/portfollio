@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import emailjs from 'emailjs-com'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Mail, Phone, MapPin, Send, Linkedin, Github, Globe, Loader } from 'lucide-react'
@@ -25,30 +26,42 @@ const Contact = () => {
     })
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus(null)
 
-    try {
-      // Simulating API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      // Always success since we're not making an actual API call
-      setSubmitStatus({
-        type: 'success',
-        message: 'Thank you for your message! I will get back to you soon.'
-      })
-      setFormData({ name: '', email: '', subject: '', message: '' })
-    } catch (error) {
-      console.error('Contact form error:', error)
-      setSubmitStatus({
-        type: 'error',
-        message: 'Failed to send message. Please try again.'
-      })
-    } finally {
-      setIsSubmitting(false)
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message
     }
+
+    emailjs.send(
+      'service_bgui54t',
+      'template_0ex9mdw',
+      templateParams,
+      'bp3DMcEizs3s5Ud_Q'
+    )
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text)
+        setSubmitStatus({
+          type: 'success',
+          message: 'Thank you for your message! I will get back to you soon.'
+        })
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      })
+      .catch((err) => {
+        console.error('FAILED...', err)
+        setSubmitStatus({
+          type: 'error',
+          message: 'Failed to send message. Please try again.'
+        })
+      })
+      .finally(() => {
+        setIsSubmitting(false)
+      })
   }
 
   const contactInfo = [
@@ -111,7 +124,7 @@ const Contact = () => {
             <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300">Get In Touch</h2>
             <div className="w-20 h-1 bg-purple-600 dark:bg-purple-400 mx-auto mb-6 transition-colors duration-300"></div>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-full xl:max-w-3xl 2xl:max-w-4xl mx-auto transition-colors duration-300">
-              I'm always open to discussing new opportunities and exciting projects. 
+              I'm always open to discussing new opportunities and exciting projects.
               Let's connect and create something amazing together!
             </p>
           </motion.div>
@@ -122,7 +135,7 @@ const Contact = () => {
               <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-8 transition-colors duration-300">
                 Let's Connect
               </h3>
-              
+
               <div className="space-y-6 mb-8">
                 {contactInfo.map((info, index) => (
                   <motion.a
@@ -186,7 +199,7 @@ const Contact = () => {
               <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-8 transition-colors duration-300">
                 Send Message
               </h3>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   <div>
@@ -204,7 +217,7 @@ const Contact = () => {
                       placeholder="Your full name"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                       Email Address
@@ -256,11 +269,10 @@ const Contact = () => {
 
                 {/* Status Message */}
                 {submitStatus && (
-                  <div className={`p-4 rounded-lg mb-4 transition-colors duration-300 ${
-                    submitStatus.type === 'success' 
-                      ? 'bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800' 
-                      : 'bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-800'
-                  }`}>
+                  <div className={`p-4 rounded-lg mb-4 transition-colors duration-300 ${submitStatus.type === 'success'
+                    ? 'bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800'
+                    : 'bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-800'
+                    }`}>
                     {submitStatus.message}
                   </div>
                 )}
@@ -268,11 +280,10 @@ const Contact = () => {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold ${
-                    isSubmitting 
-                      ? 'bg-gray-400 dark:bg-gray-600 text-gray-700 dark:text-gray-300 cursor-not-allowed' 
-                      : 'bg-purple-600 dark:bg-purple-500 text-white hover:bg-purple-700 dark:hover:bg-purple-600'
-                  }`}
+                  className={`w-full py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold ${isSubmitting
+                    ? 'bg-gray-400 dark:bg-gray-600 text-gray-700 dark:text-gray-300 cursor-not-allowed'
+                    : 'bg-purple-600 dark:bg-purple-500 text-white hover:bg-purple-700 dark:hover:bg-purple-600'
+                    }`}
                   whileHover={!isSubmitting ? { scale: 1.02 } : {}}
                   whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                 >
