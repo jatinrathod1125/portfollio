@@ -21,46 +21,52 @@ const Header = () => {
           <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
             JATIN RATHOD
           </div>
-          
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8 items-center">
-            <button 
+            <button
               onClick={() => scrollToSection('home')}
               className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
             >
               Home
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('about')}
               className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
             >
               About
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('skills')}
               className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
             >
               Skills
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('experience')}
               className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
             >
               Experience
             </button>
-            <button 
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+            >
+              Projects
+            </button>
+            <button
               onClick={() => scrollToSection('education')}
               className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
             >
               Education
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('contact')}
               className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
             >
               Contact
             </button>
-            
+
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
@@ -80,7 +86,7 @@ const Header = () => {
             >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <button 
+            <button
               className="text-gray-700 dark:text-gray-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
@@ -93,37 +99,43 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4">
             <div className="flex flex-col space-y-2">
-              <button 
+              <button
                 onClick={() => scrollToSection('home')}
                 className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 py-2 text-left transition-colors"
               >
                 Home
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('about')}
                 className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 py-2 text-left transition-colors"
               >
                 About
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('skills')}
                 className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 py-2 text-left transition-colors"
               >
                 Skills
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('experience')}
                 className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 py-2 text-left transition-colors"
               >
                 Experience
               </button>
-              <button 
+              <button
+                onClick={() => scrollToSection('projects')}
+                className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 py-2 text-left transition-colors"
+              >
+                Projects
+              </button>
+              <button
                 onClick={() => scrollToSection('education')}
                 className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 py-2 text-left transition-colors"
               >
                 Education
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('contact')}
                 className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 py-2 text-left transition-colors"
               >
