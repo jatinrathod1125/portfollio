@@ -23,7 +23,7 @@ const Education = () => {
         "Self-learning in Web Development",
         "Practical Experience through Internships"
       ],
-      type: "Undergraduate"
+      type: "Graduate"
     }
   ]
 
@@ -150,48 +150,6 @@ const Education = () => {
             ))}
           </div>
 
-          {/* Achievements */}
-          <motion.div variants={itemVariants}>
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-white text-center mb-12 transition-colors duration-300">
-              Learning Achievements
-            </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-full xl:max-w-5xl 2xl:max-w-6xl mx-auto">
-              {achievements.map((achievement, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center transition-colors duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <div className={`w-16 h-16 ${achievement.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                    {achievement.icon}
-                  </div>
-                  <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-3 transition-colors duration-300">
-                    {achievement.title}
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
-                    {achievement.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Learning Philosophy */}
-          <motion.div variants={itemVariants} className="mt-16 text-center">
-            <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-8 rounded-lg max-w-full xl:max-w-4xl 2xl:max-w-5xl mx-auto transition-colors duration-300">
-              <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4 transition-colors duration-300">
-                Learning Philosophy
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg transition-colors duration-300">
-                "I believe in continuous learning and adapting to new technologies. 
-                My journey from commerce to web development shows my passion for 
-                technology and commitment to self-improvement. I combine theoretical 
-                knowledge with practical experience to create meaningful solutions."
-              </p>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

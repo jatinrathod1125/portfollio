@@ -10,22 +10,22 @@ const Experience = () => {
   })
 
   const experiences = [
-    {
-      company: "Perfect Webtech",
-      position: "Full Stack Developer",
-      duration: "Jan 2025 - Present",
-      location: "Rajkot, Gujarat",
-      type: "Full-time",
-      description: "Working as a Full Stack Developer focusing on Laravel, PHP, and React Native for mobile app development.",
-      responsibilities: [
-        "Building dynamic web applications and mobile apps using REST APIs",
-        "Collaborating with designers and backend teams to create responsive and scalable applications",
-        "Performing debugging, API integrations, and handling database relationships using MySQL",
-        "Working with Laravel framework for backend development"
-      ],
-      technologies: ["Laravel", "PHP", "React Native", "MySQL", "REST APIs"],
-      current: true
-    },
+    // {
+    //   company: "Perfect Webtech",
+    //   position: "Full Stack Developer",
+    //   duration: "Jan 2025 - Present",
+    //   location: "Rajkot, Gujarat",
+    //   type: "Full-time",
+    //   description: "Working as a Full Stack Developer focusing on Laravel, PHP, and React Native for mobile app development.",
+    //   responsibilities: [
+    //     "Building dynamic web applications and mobile apps using REST APIs",
+    //     "Collaborating with designers and backend teams to create responsive and scalable applications",
+    //     "Performing debugging, API integrations, and handling database relationships using MySQL",
+    //     "Working with Laravel framework for backend development"
+    //   ],
+    //   technologies: ["Laravel", "PHP", "React Native", "MySQL", "REST APIs"],
+    //   current: true
+    // },
     {
       company: "Nityam Webtech",
       position: "Web Developer Intern",

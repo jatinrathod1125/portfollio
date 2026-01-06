@@ -15,7 +15,7 @@ const Skills = () => {
         { name: "HTML5", level: 90, color: "bg-orange-500" },
         { name: "CSS3", level: 85, color: "bg-blue-500" },
         { name: "JavaScript", level: 80, color: "bg-yellow-500" },
-        { name: "React.js", level: 75, color: "bg-cyan-500" }
+      
       ]
     },
     {
@@ -30,7 +30,6 @@ const Skills = () => {
     {
       title: "Tools & Others",
       skills: [
-        { name: "WordPress", level: 70, color: "bg-blue-700" },
         { name: "Git", level: 75, color: "bg-gray-600" },
         { name: "Responsive Design", level: 85, color: "bg-pink-500" },
         { name: "Debugging", level: 80, color: "bg-indigo-500" }
